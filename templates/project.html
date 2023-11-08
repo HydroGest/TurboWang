@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+        <title>TurboWang | {{pdata['title']}}</title>
+        <style>
+            #info{
+                margin-left: 15%;
+                margin-right: 15%;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="mdui-shadow-5 mdui-toolbar mdui-color-blue">
+  <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+    <i class="mdui-icon material-icons"><font color="white">flash_on</font></i>
+  </a>
+  <span class="mdui-typo-title"><font color="white">TurboWang - 加速运行小码王作品</font></span>
+  <div class="mdui-toolbar-spacer"></div>
+</div>
+<br/>
+        <center>
+            <iframe  height="520px" width="70%" frameborder="0" src="{{url}}">
+            </iframe>
+        </center>
+        <br/>
+        <div id="info">
+            <center>
+                TurboWang是由Markchai开发并提供的在线使用Turbowarp运行小码王作品的工具，支持编译模式、高清画笔和暂停功能。
+            </center>
+            <br/>
+            <div class="mdui-row">
+                <div class="mdui-col-xs-10">
+                    <div class="mdui-textfield">
+                        <input class="mdui-textfield-input" type="text" id="url" placeholder="http://world.xiaomawang.com/community/main/compose/3VTj666J"/>
+                        <div class="mdui-textfield-helper">作品链接</div>
+                    </div>
+                </div>
+                <div class="mdui-col-xs-2">
+                    <button onclick="go('auto')" class="mdui-btn mdui-color-blue-accent mdui-ripple">访问</button>
+                </div>
+            </div>
+            <hr/>
+            <div class="mdui-row">
+                <div class="mdui-col-xs-9"><b>{{pdata['title']}}</b><br/><div class="mdui-typo-caption">
+                <i class="mdui-icon material-icons">remove_red_eye</i>
+                    {{pdata['statObject']['viewCount']}} 
+                <i class="mdui-icon material-icons">thumb_up</i>
+                    {{pdata['statObject']['likeCount']}}
+                <i class="mdui-icon material-icons">star</i>
+                    {{pdata['statObject']['collectCount']}}
+                <i class="mdui-icon material-icons">question_answer</i>
+                    {{pdata['statObject']['commentCount']}}
+                </div>
+                </div>
+                <div class="mdui-col-xs-3">{{pdata['userObject']['nickname']}}<br/><div class="mdui-typo-caption-opacity">更新于{{pdata['saveTimeFormat']}}</div></div>
+                <div>
+                </div>
+            </div>
+            
+                    <div class="mdui-typo">
+                        <blockquote>
+                            <p>{{pdata['description']}}</p>
+                            <footer>作品简介</footer>
+                        </blockquote>
+                    </div>
+            <hr/>
+            <h1>推荐作品</h1>
+            <div id="showProjects">
+                <div class="mdui-row">
+                {% for project in projects %}
+                    <div class="mdui-col-xs-4">
+                        
+                        <div class="mdui-card">
+                            <div class="mdui-card-media">
+                                <img src="{{'/getasset?url='+project['coverKey']}}"/>
+                                <div class="mdui-card-media-covered">
+                                    <div class="mdui-card-primary">
+                                        <div class="mdui-card-primary-title">{{project['title']}}</div>
+                                       <div class="mdui-card-primary-subtitle">{{project['userObject']['nickname']}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mdui-card-actions">
+    <button  onclick="document.location.href = 'http://turbowang.mkc.icu/projects/{{project['compositionId']}}';" class="mdui-btn mdui-ripple">体验</button>
+    </div>
+                        </div>
+                        
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <center><p>TurboWang已缓存{{projectNum}}个作品。如果你看不到作品，请将浏览器网址栏中"https"改成"http"。</p></center>
+        <script>
+            object=document.getElementById('url');
+            path=window.location.pathname.split('/');
+            id=path[path.length-1];
+            object.value='http://world.xiaomawang.com/community/main/compose/'+id;
+            function go(){
+                object=document.getElementById('url');
+                path=object.value.split('/');
+                id=path[path.length-1];
+                document.location.href = 'http://turbowang.mkc.icu/projects/'+id;
+            }
+        </script>
+        <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    </body>
+</html>

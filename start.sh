@@ -1,0 +1,1 @@
+flask run --port=25433 --host=0.0.0.0
