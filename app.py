@@ -4,8 +4,6 @@ import main,os,getassets,projectInfo
 import traceback
 app = Flask(__name__)
 
-STATIC_BASE='https://example.com' # 静态文件服务器URL
-
 def getGoodProjects():
     return [
         projectInfo.getProps('https://world.xiaomawang.com/community/main/compose/N0KU666J'),
@@ -22,7 +20,7 @@ def getproject(url):
         static=main.createProject(url)
         files = os.listdir('./statics/tmp/')   # 读入文件夹
         num= len(files)     
-        return render_template('project.html', url=STATIC_BASE+static,pdata=main.getProjectData(url),projectNum=num,projects=getGoodProjects())
+        return render_template('project.html', url=static,pdata=main.getProjectData(url),projectNum=num,projects=getGoodProjects())
     except Exception as e:
         return traceback.format_exc()
 #
