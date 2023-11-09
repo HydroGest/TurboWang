@@ -1,4 +1,3 @@
-> 本人在将此项目上传至Github之前误删了一个关键文件，此文件关于Turbowarp编译，此操作不可逆。本人或将于寒假重新对此致命错误进行修复。
 
 # TurboWang
 
@@ -7,6 +6,8 @@
 ## 部署
 
 ### 环境准备
+
+在开始之前，请确保您已经安装Python3.7及以上、NodeJS18.18.0及以上和对应的npm。
 
 构建Python3虚拟环境：
 
@@ -27,6 +28,10 @@ py -3 -m venv .venv
 pip install flask
 pip install requests
 pip install Beautifulsoup4
+```
+安装NodeJS依赖
+```
+npm install
 ```
 
 ### 启动
