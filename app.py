@@ -26,7 +26,7 @@ def getproject(url):
 #
 @app.route("/")
 def hello_world():
-    return "<script>document.location.href ='http://turbowang.mkc.icu/projects/N0KU666J'</script>"
+    return "<script>document.location.href ='/projects/N0KU666J'</script>"
 
 @app.route("/getasset")
 def getasset():
