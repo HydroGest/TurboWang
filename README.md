@@ -11,7 +11,7 @@
 
 构建Python3虚拟环境：
 
-```
+```shell
 # Linux & MacOS
 python3 -m venv .venv
 . .venv/bin/activate #每次启动前运行此命令
@@ -42,5 +42,6 @@ flask run --port=25433 --host=0.0.0.0
 其中`port`参数是开放的端口号，你现在可以在浏览器启动`http://localhost:25433`来访问TurboWang。
 
 
-
-
+> ## 注：
+> 
+> 如果你的服务器部署在海外，那么可能将无法正常获取小码王作品。
