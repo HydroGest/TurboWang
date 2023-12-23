@@ -3,7 +3,7 @@ from flask import render_template,url_for,request
 import main,os,getassets,projectInfo
 import traceback
 app = Flask(__name__)
-app.config['STATIC_URL_PATH'] = '/statics'
+#app.config['STATIC_URL_PATH'] = '/statics'
 
 def getGoodProjects():
     return [
@@ -19,7 +19,7 @@ def getGoodProjects():
 def getproject(url):
     try:
         static=main.createProject(url)
-        files = os.listdir('./statics/tmp/')   # 读入文件夹
+        files = os.listdir('./static/tmp/')   # 读入文件夹
         num= len(files)     
         return render_template('project.html', url=static,pdata=main.getProjectData(url),projectNum=num,projects=getGoodProjects())
     except Exception as e:
