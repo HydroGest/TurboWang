@@ -3,6 +3,7 @@ from flask import render_template,url_for,request
 import main,os,getassets,projectInfo
 import traceback
 app = Flask(__name__)
+app.config['STATIC_URL_PATH'] = '/statics'
 
 def getGoodProjects():
     return [
